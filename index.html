@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dispositif SIGNAL</title>
+  <script defer src="script.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="max-w-2xl mx-auto p-6 mt-10 bg-white rounded-xl shadow-md">
+    <h1 class="text-3xl font-bold mb-4">Dispositif SIGNAL</h1>
+
+    <div id="intro-section">
+      <p class="mb-4">
+        📌 Ce formulaire est géré par un agent développeur au sein de la section syndicale.<br>
+        💻 Il permet de signaler, enregistrer ou faire remonter toute situation injuste ou anormale dans l’entreprise, en toute sécurité.
+      </p>
+      <ul class="list-disc pl-6 mb-4">
+        <li>Harcèlement ou discrimination</li>
+        <li>Problème de planning ou de congés</li>
+        <li>Convocation disciplinaire / abus de pouvoir</li>
+        <li>Conditions de travail dégradées (pas d’EPI, pas de chauffage, etc.)</li>
+        <li>Autres situations injustes ou abusives</li>
+        <li>Signalements passés restés sans réponse</li>
+      </ul>
+      <p class="mb-4">
+        🧠 Ce formulaire est aussi un outil de mémoire syndicale.<br>
+        🛡️ Conforme à la loi Sapin II. Aucune information ne sera transmise sans votre accord.<br>
+        📬 Contact : <a href="mailto:temoignage-signal@protonmail.com" class="text-blue-600 underline">temoignage-signal@protonmail.com</a>
+      </p>
+
+      <button onclick="nextSection()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+        Commencer le signalement
+      </button>
+    </div>
+
+    <div id="form-section" class="hidden">
+      <!-- Ici apparaîtra la suite du formulaire -->
+      <h2 class="text-2xl font-semibold mb-4">Quel(s) type(s) de situation souhaitez-vous signaler ?</h2>
+      <form id="signal-form" action="https://formspree.io/f/xanjzayj" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_redirect" value="merci.html">
+        <div class="mb-4">
+          <label class="block mb-2 font-medium">Cochez une ou plusieurs options :</label>
+          <div class="space-y-2">
+                        <label class="block"><input type="checkbox" name="situation" value="harcelement" onchange="toggleSection('harcelement')" /> Harcèlement ou discrimination</label>
+            <label class="block"><input type="checkbox" name="situation" value="planning" onchange="toggleSection('planning')" /> Problème de planning ou congés</label>
+            <label class="block"><input type="checkbox" name="situation" value="convocation" onchange="toggleSection('convocation')" /> Convocation disciplinaire / pression</label>
+            <label class="block"><input type="checkbox" name="situation" value="conditions" onchange="toggleSection('conditions')" /> Conditions de travail dégradées</label>
+            <label class="block"><input type="checkbox" name="situation" value="autre" onchange="toggleSection('autre')" /> Autres situations abusives</label>
+            <label class="block"><input type="checkbox" name="situation" value="ancien" onchange="toggleSection('ancien')" /> Signalement passé resté sans réponse</label>
+          </div>
+        </div>
+
+        <!-- Sections harcelement -->
+
+        <div id="harcelement-section" class="mt-6 hidden">
+          <h3 class="text-xl font-semibold mb-2">Harcèlement ou discrimination</h3>
+          <div class="mb-4">
+            <label class="block mb-2">Quel est le type de harcèlement ?</label>
+            <select class="w-full border px-3 py-2 rounded">
+              <option>Harcèlement moral</option>
+              <option>Harcèlement sexuel</option>
+              <option>Discrimination (âge, genre, origine, etc.)</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Décrivez précisément les faits :</label>
+            <textarea class="w-full border px-3 py-2 rounded" rows="5"></textarea>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Souhaitez-vous être recontacté ?</label>
+            <label><input type="radio" name="contact-harcelement" value="oui" class="mr-2"> Oui</label>
+            <label class="ml-4"><input type="radio" name="contact-harcelement" value="non" class="mr-2"> Non</label>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Joindre une pièce justificative (facultatif)</label>
+            <input type="file">
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Comment jugez-vous votre moral ?</label>
+            <select class="w-full border rounded px-3 py-2">
+              <option>Très bon</option>
+              <option>Acceptable</option>
+              <option>En baisse</option>
+              <option>Très mauvais</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Sections planning -->
+
+        <div id="planning-section" class="mt-6 hidden">
+          <h3 class="text-xl font-semibold mb-2">Problème de planning ou congés</h3>
+          <div class="mb-4">
+            <label class="block mb-2">Quel est le type de problème rencontré ?</label>
+            <select class="w-full border px-3 py-2 rounded">
+              <option>Refus injustifié de congés</option>
+              <option>Modification de planning sans préavis</option>
+              <option>Temps de repos non respecté</option>
+              <option>Rythme de travail abusif</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Expliquez la situation :</label>
+            <textarea class="w-full border px-3 py-2 rounded" rows="5"></textarea>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Souhaitez-vous être recontacté ?</label>
+            <label><input type="radio" name="contact-planning" value="oui" class="mr-2"> Oui</label>
+            <label class="ml-4"><input type="radio" name="contact-planning" value="non" class="mr-2"> Non</label>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Joindre une copie de planning ou échange (facultatif)</label>
+            <input type="file">
+          </div>
+        </div>
+
+        <!-- Sections convocation -->
+
+        <div id="convocation-section" class="mt-6 hidden">
+          <h3 class="text-xl font-semibold mb-2">Convocation disciplinaire / pression</h3>
+          <div class="mb-4">
+            <label class="block mb-2">Avez-vous reçu une convocation ?</label>
+            <select class="w-full border px-3 py-2 rounded">
+              <option>Oui, par courrier</option>
+              <option>Oui, verbalement</option>
+              <option>Non, mais j’ai subi des pressions</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Expliquez les faits ou les pressions subies :</label>
+            <textarea class="w-full border px-3 py-2 rounded" rows="5"></textarea>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Souhaitez-vous être accompagné par un représentant ?</label>
+            <label><input type="radio" name="contact-convocation" value="oui" class="mr-2"> Oui</label>
+            <label class="ml-4"><input type="radio" name="contact-convocation" value="non" class="mr-2"> Non</label>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Joindre une convocation ou capture (facultatif)</label>
+            <input type="file">
+          </div>
+        </div>
+
+        <!-- Sections condition de travail -->
+
+        <div id="conditions-section" class="mt-6 hidden">
+          <h3 class="text-xl font-semibold mb-2">Conditions de travail dégradées</h3>
+          <div class="mb-4">
+            <label class="block mb-2">Quels problèmes rencontrez-vous ?</label>
+            <textarea class="w-full border px-3 py-2 rounded" rows="4" placeholder="Ex : pas d’EPI, matériel dangereux, température extrême, etc."></textarea>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Depuis combien de temps cette situation dure-t-elle ?</label>
+            <input type="text" class="w-full border px-3 py-2 rounded" placeholder="Ex : depuis 2 semaines, depuis janvier...">
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Avez-vous déjà signalé ce problème ?</label>
+            <select class="w-full border px-3 py-2 rounded">
+              <option>Oui</option>
+              <option>Non</option>
+              <option>Je préfère ne pas répondre</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Souhaitez-vous joindre une photo ou un document ? (facultatif)</label>
+            <input type="file">
+          </div>
+        </div>
+
+        <!-- Section Autres situations abusives -->
+
+        <div id="autre-section" class="mt-6 hidden">
+          <h3 class="text-xl font-semibold mb-2">Autres situations abusives</h3>
+          <div class="mb-4">
+            <label class="block mb-2">Décrivez votre situation :</label>
+            <textarea class="w-full border px-3 py-2 rounded" rows="4" placeholder="Faits, personnes impliquées, impacts..."></textarea>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Souhaitez-vous être recontacté ?</label>
+            <label><input type="radio" name="contact-autre" value="oui" class="mr-2"> Oui</label>
+            <label class="ml-4"><input type="radio" name="contact-autre" value="non" class="mr-2"> Non</label>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Souhaitez-vous joindre une pièce complémentaire ? (facultatif)</label>
+            <input type="file">
+          </div>
+        </div>
+
+        <!-- Section Signalement passé resté sans réponse -->
+
+        <div id="ancien-section" class="mt-6 hidden">
+          <h3 class="text-xl font-semibold mb-2">Signalement passé resté sans réponse</h3>
+          <div class="mb-4">
+            <label class="block mb-2">Expliquez votre précédent signalement :</label>
+            <textarea class="w-full border px-3 py-2 rounded" rows="4" placeholder="Date, service, personnes concernées, contexte..."></textarea>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Souhaitez-vous qu’il soit réexaminé par un représentant ?</label>
+            <label><input type="radio" name="contact-ancien" value="oui" class="mr-2"> Oui</label>
+            <label class="ml-4"><input type="radio" name="contact-ancien" value="non" class="mr-2"> Non</label>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Souhaitez-vous joindre des éléments de preuve ? (facultatif)</label>
+            <input type="file">
+          </div>
+        </div>
+
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Continuer
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function nextSection() {
+      document.getElementById('intro-section').classList.add('hidden');
+      document.getElementById('form-section').classList.remove('hidden');
+    }
+
+    function toggleSection(section) {
+      const element = document.getElementById(`${section}-section`);
+      const checkbox = document.querySelector(`input[name='situation'][value='${section}']`);
+      if (checkbox.checked) {
+        element.classList.remove('hidden');
+      } else {
+        element.classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
