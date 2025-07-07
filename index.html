@@ -6,46 +6,68 @@
   <title>Dispositif SIGNAL</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-[#f7f7f7] text-[#333]">
   <div class="max-w-2xl mx-auto p-6 mt-10 bg-white rounded-xl shadow-md">
     <img src="cfdt.png" alt="Logo CFDT Services" class="mx-auto mb-4 w-48">
-    <h1 class="text-3xl font-bold mb-4">Dispositif SIGNAL (BETA)</h1>
+    <h1 class="text-3xl font-bold mb-4 text-[#f15a22]">Dispositif SIGNAL</h1>
 
     <div id="intro-section">
+
       <p class="mb-4">
-        📌 Ce formulaire est géré par un agent développeur au sein de la section syndicale de Brest.<br>
-        💻 Il permet de signaler, enregistrer ou faire remonter toute situation injuste ou anormale dans l’entreprise, en toute sécurité.
+        📌 <strong>Ce formulaire est conçu par un agent développeur de la section syndicale de Brest</strong>, pour donner la parole à toutes celles et ceux qui en ont besoin.
       </p>
+
+      <p class="mb-4">
+        🤝 <strong>Il est ouvert à tout le monde</strong>, quels que soient votre poste, votre ancienneté ou votre affiliation syndicale. Chacun·e a le droit d’être entendu·e.
+      </p>
+
+      <p class="mb-4">
+        💻 <strong>Il vous permet de signaler, expliquer ou faire remonter</strong> une situation injuste, anormale ou préoccupante dans votre environnement de travail, en toute sécurité.
+      </p>
+
       <ul class="list-disc pl-6 mb-4">
         <li>Harcèlement moral ou sexuel</li>
         <li>Discrimination (âge, genre, origine, etc.)</li>
         <li>Problème de planning ou de congés</li>
         <li>Convocation disciplinaire ou pression injustifiée</li>
-        <li>Conditions de travail dangereuses ou dégradées (pas d’EPI, matériel défectueux...)</li>
-        <li>......</li>
-
+        <li>Conditions de travail dangereuses ou dégradées (pas d’EPI, matériel cassé, froid...)</li>
+        <li>Autres abus ou manquements graves</li>
+        <li>Signalements passés restés sans réponse</li>
       </ul>
+
       <p class="mb-4">
-        🧠 Ce formulaire est aussi un outil de mémoire syndicale.<br>
-        🛡️ Conforme à la loi Sapin II. Aucune information ne sera transmise sans votre accord.<br>
-        📬 Contact : <a href="mailto:temoignage-signal@protonmail.com" class="text-blue-600 underline">temoignage-signal@protonmail.com</a>
+        🧠 <strong>Ce formulaire est aussi un outil de mémoire syndicale</strong>, qui permet de documenter les situations et d’agir dans la durée.
       </p>
+
+      <p class="mb-4">
+        🛡️ <strong>Vos données ne seront jamais transmises sans votre accord</strong>. Le dispositif respecte la confidentialité et la loi Sapin II sur les lanceurs d’alerte.
+      </p>
+
+      <p class="mb-4">
+        📬 Pour toute question ou envoi de documents : 
+        <a href="mailto:temoignage-signal@protonmail.com" class="text-blue-600 underline">temoignage-signal@protonmail.com</a>
+      </p>
+
       <h2 class="text-xl font-semibold mt-6 mb-2">🔐 Protection des données (RGPD)</h2>
       <p class="mb-4">
-        Ce formulaire est conforme au <strong>Règlement Général sur la Protection des Données (RGPD)</strong>. À ce titre :
+        Ce formulaire respecte le <strong>Règlement Général sur la Protection des Données</strong>. À ce titre :
       </p>
-      <ul class="list-disc pl-6 mb-4 text-sm">
+
+      <ul class="list-disc pl-6 mb-6 text-sm">
         <li>✅ Vous n’êtes <strong>pas obligé(e)</strong> de donner votre nom, votre mail ou votre numéro.</li>
-        <li>✅ Aucun suivi ni cookie n’est utilisé pour identifier les utilisateurs.</li>
-        <li>✅ Vos réponses ne sont <strong>ni stockées</strong> sur une base de données, ni partagées à des tiers.</li>
-        <li>✅ Vos données sont directement transmises au référent syndical <strong>via une adresse e-mail sécurisée</strong>.</li>
-        <li>✅ Vous pouvez à tout moment demander la <strong>modification ou suppression</strong> de votre témoignage, sur simple demande à <a href="mailto:temoignage-signal@protonmail.com" class="text-blue-600 underline">temoignage-signal@protonmail.com</a>.</li>
+        <li>✅ Aucun cookie, traceur ou identifiant n’est utilisé.</li>
+        <li>✅ Vos réponses <strong>ne sont pas stockées</strong> sur une base de données, ni partagées à des tiers.</li>
+        <li>✅ Les messages sont envoyés directement à une <strong>adresse e-mail syndicale sécurisée</strong>.</li>
+        <li>✅ Vous pouvez demander la <strong>modification ou suppression</strong> de votre témoignage à tout moment à : 
+          <a href="mailto:temoignage-signal@protonmail.com" class="text-blue-600 underline">temoignage-signal@protonmail.com</a>
+        </li>
       </ul>
 
-      <button onclick="nextSection()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+      <button onclick="nextSection()" class="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700">
         Commencer le signalement
       </button>
     </div>
+
 
     <div id="form-section" class="hidden">
       <form id="signal-form" action="https://formspree.io/f/xanjzayj" method="POST">
@@ -137,7 +159,7 @@
           <a href="mailto:temoignage-signal@protonmail.com" class="text-blue-600 underline">temoignage-signal@protonmail.com</a>
         </div>
 
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <button type="submit" class="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700">
           Envoyer le signalement
         </button>
       </form>
